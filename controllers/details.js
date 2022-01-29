@@ -18,10 +18,12 @@ detailsRouter.post('/', async (request, response, next) => {
 	const details = new Details(request.body)
 	const savedDetails = await details.save()
 
-	const category = await Category
-		.findById(category_id)
+	if (category_id) {
+		const category = await Category
+			.findById(category_id)
 
-	category.category_details = category.category_details.concat(savedDetails._id)
+		category.category_details = category.category_details.concat(savedDetails._id)
+	}
 	await category.save()
 
 	response.status(201).json(savedDetails)
@@ -49,11 +51,13 @@ detailsRouter.delete("/:id", async (request, response, next) => {
 	const category_id = request.body.category_id
 	delete request.body.category_id
 
-	const category = await Category
-		.findById(category_id)
+	if (category_id) {
+		const category = await Category
+			.findById(category_id)
 
-	category.category_details.filter(c => c.id.toString() !== id.toString())
-	await category.save()
+		category.category_details.filter(c => c.id.toString() !== id.toString())
+		await category.save()
+	}
 
 	await Details.findByIdAndDelete(id)
 

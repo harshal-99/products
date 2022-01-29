@@ -10,4 +10,17 @@ Execute the code by running
 
 deployed site https://polar-atoll-76444.herokuapp.com/api/category
 
+# POST, PUT /api/details 
+>{
+> product_name: String,
+> quantity: Number,
+> price: Number,
+> category_id: Number
+> }
 
+# POST, PUT /api/category
+
+>{
+> category_name: String,
+> status: String,
+> }

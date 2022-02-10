@@ -24,3 +24,18 @@ deployed site https://polar-atoll-76444.herokuapp.com/api/category
 > category_name: String,
 > status: String,
 > }
+
+
+# Accucia Task Details
+
+1) create product category master with CRUD
+operation.
+
+    (fields:category_name,status,createdAt,updatedAt).
+
+
+2) create product details insert operation using API
+    (fields:product_name,price,quantity,category_id,createdAt,updatedAt)
+
+
+3) create API to get product category with latest 3 product details
